@@ -1,0 +1,87 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-areas: "header header"
+                        "left right";
+    grid-template-columns: 1FR 7FR;
+    grid-template-rows: 1FR 10FR;
+    grid-gap: 5px;
+    background-color: rgb(103, 117, 126);
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+}
+
+.header {
+    grid-area: header;
+    background-color: #2b446f;
+    color: lightgray;
+    text-align: center;
+}
+
+.main-left-panel {
+    grid-area: left;
+    background-color: rgb(174, 79, 79);
+}
+
+.main-right-panel {
+    grid-area: right;
+    display: grid;
+    grid-template-areas: "day1 day2 day3 day4 day5 day6 day7";
+    grid-template-columns: 7 * (1FR);
+    background-color: rgb(103, 117, 126);
+    grid-gap: 5px;
+    height: 100%
+}
+
+.day1 {
+    grid-area: day1;
+    background-color: lightgrey;
+    display: grid;
+    grid-template-rows: 25 * (1FR);
+    grid-gap: 10px;
+    padding-right: 5px;
+    padding-left: 5px;
+    
+}
+.day2 {
+    grid-area: day2;
+    background-color: lightgrey;
+}
+.day3 {
+    grid-area: day3;
+    background-color: lightgrey;
+}
+.day4 {
+    grid-area: day4;
+    background-color: lightgrey;
+}
+.day5 {
+    grid-area: day5;
+    background-color: lightgrey;
+}
+.day6 {
+    grid-area: day6;
+    background-color: lightgrey;
+}
+.day7 {
+    grid-area: day7;
+    background-color: lightgrey;
+}
+
+.slot {
+    padding: 4px;
+    margin: 0;
+    border-radius: 10px;
+    background-color: aliceblue;
+}
+.dayTitle {
+    text-align: center;
+    font-weight: bold;
+    
+}
