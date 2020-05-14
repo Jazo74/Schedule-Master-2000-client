@@ -43,13 +43,17 @@
                 <div class="subpanel-right">
                     <p class="center-title">Create new schedule</p>
                     <hr>
-                    <form method="post" asp-controller="Tasks" asp-action="Register">
+                    <form class="extensible-form" method="post" asp-controller="Tasks" asp-action="Register">
                         <label class="subpanel-label">Schedule name</label>
                         <br />
                         <input class="input-text" type="text" name="scheduleName" required autocomplete="off"/>
+                        <br>
+                        <label class="subpanel-label">Number of days (1-7)</label>
+                        <br />
+                        <input class="input-text" id="days-number" type="text" name="daysNumber" required autocomplete="off"/>
                         <br />
                         <br />
-                        <input class="button" type="submit" value="Create" />
+                        <button class="next-button button">Next</button>
                     </form>
                 </div>
                 <div class="closer">

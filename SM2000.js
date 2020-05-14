@@ -16,6 +16,9 @@ const schedulesPanelEl = document.querySelector('.schedules');
 const tasksPanelEl = document.querySelector('.tasks');
 const slotsPanelEl = document.querySelector('.slots');
 const closerButtonsEl = document.querySelectorAll('.closer-button');
+const extensibleFormEl = document.querySelector('.extensible-form');
+const nextButtonEl = document.querySelector('.next-button');
+
 
 // creating 1 title + 24 slot in a day
 // creating a title for the day
@@ -81,7 +84,42 @@ function hideMiddlePanel(){
 
 }
 
-function navBarLinks() {
+function extendForm(){
+    extensibleFormEl.appendChild(document.createElement('hr'));
+    const daysNumber = document.getElementById('days-number').value;
+    nextButtonEl.style.display = 'none';
+    for (i=1; i<=daysNumber; i++){
+        const newLabelEl = document.createElement('label');
+        newLabelEl.className = 'subpanel-label';
+        newLabelEl.innerText = 'Name of the ' + i + '. day name';
+
+        const newInputEl = document.createElement('input');
+        newInputEl.className = 'input-text';
+
+        const newAttrType = document.createAttribute('type');
+        newAttrType.value = 'text';
+        const newAttrName = document.createAttribute('name');
+        newAttrName.value = 'name' + i;
+        const newAttrReq = document.createAttribute('required');
+        newInputEl.setAttributeNode(newAttrType);
+        newInputEl.setAttributeNode(newAttrName);
+        newInputEl.setAttributeNode(newAttrReq);
+
+        extensibleFormEl.appendChild(newLabelEl);
+        extensibleFormEl.appendChild(document.createElement('br'));
+        extensibleFormEl.appendChild(newInputEl);
+        extensibleFormEl.appendChild(document.createElement('br'));
+    }
+    const newSubmitButtonEl = document.createElement('button');
+    newSubmitButtonEl.className = 'task-button button';
+    newSubmitButtonEl.innerText = 'Create schedule';
+    extensibleFormEl.appendChild(document.createElement('br'));
+    extensibleFormEl.appendChild(newSubmitButtonEl);
+}
+    
+
+function init() {
+    nextButtonEl.addEventListener('click', extendForm);
     schedLinkEl.addEventListener('mouseover', openSchedPanel);
     tasksLinkEl.addEventListener('mouseover', openTasksPanel);
     loginLinkEl.addEventListener('mouseover', openLoginPanel);
@@ -92,4 +130,4 @@ function navBarLinks() {
 
 
 createHourElement();
-navBarLinks();
+init();
